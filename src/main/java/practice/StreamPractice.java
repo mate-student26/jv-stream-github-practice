@@ -21,7 +21,7 @@ public class StreamPractice {
                 .flatMap(n -> Arrays.stream(n.split(",")))
                 .map(String::trim)
                 .map(Integer::parseInt)
-                .filter(n-> n % 2 ==0)
+                .filter(n -> n % 2 == 0)
                 .min(Integer::compare)
                 .orElseThrow(() -> new RuntimeException(
                         "Cant't get min value from list: " + numbers));
@@ -37,7 +37,8 @@ public class StreamPractice {
                 .mapToInt(Integer::intValue)
                 .filter(n -> n % 2 != 0)
                 .average()
-                .orElseThrow(() -> new NoSuchElementException("No odd numbers in the list: " + numbers));
+                .orElseThrow(() -> new NoSuchElementException(
+                        "No odd numbers in the list: " + numbers));
     }
 
     /**
@@ -70,8 +71,8 @@ public class StreamPractice {
         return peopleList.stream()
                 .filter(p -> (p.getSex() == Person.Sex.MAN
                         && (p.getAge() >= fromAge && p.getAge() <= maleToAge))
-                        || (p.getSex() == Person.Sex.WOMAN &&
-                        (p.getAge() >= fromAge && p.getAge() <= femaleToAge)))
+                        || (p.getSex() == Person.Sex.WOMAN
+                        && (p.getAge() >= fromAge && p.getAge() <= femaleToAge)))
                 .toList();
     }
 
